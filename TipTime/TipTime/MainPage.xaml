@@ -25,7 +25,7 @@
 
             <Entry
                 Placeholder="Digite o valor da refeição"
-                x:Name="EntradaValor"
+                x:Name="ValueEntry"
                 />
 
             <Label

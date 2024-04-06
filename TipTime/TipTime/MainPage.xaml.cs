@@ -27,6 +27,15 @@
             double valorRefeicao = Convert.ToDouble(ValueEntry.Text);
             double valorSlider = Convert.ToDouble(TipSlider.Value);
             double valorGorjeta = valorRefeicao * (valorSlider / 100);
+            valorGorjeta = Math.Ceiling(valorGorjeta);
+            double sliderValueOut = Math.Ceiling(valorSlider);
+            double totalRefeicao = valorRefeicao + valorGorjeta;
+
+            TipOut.Text = "$" + valorGorjeta.ToString();
+            TotalOut.Text = "$" + totalRefeicao.ToString();
+            TipPercentOut.Text = sliderValueOut.ToString() + "%";
+            TipSlider.Value = sliderValueOut;
+
         }
 
         private void OnRoundDn_Clicked(object sender, EventArgs e)
@@ -34,13 +43,31 @@
             double valorRefeicao = Convert.ToDouble(ValueEntry.Text);
             double valorSlider = Convert.ToDouble(TipSlider.Value);
             double valorGorjeta = valorRefeicao * (valorSlider / 100);
+            valorGorjeta = Math.Floor(valorGorjeta);
+            double sliderValueOut = Math.Floor(valorSlider);
+            double totalRefeicao = valorRefeicao + valorGorjeta;
+
+            TipOut.Text = "$" + valorGorjeta.ToString();
+            TotalOut.Text = "$" + totalRefeicao.ToString();
+            TipPercentOut.Text = sliderValueOut.ToString() + "%";
+            TipSlider.Value = sliderValueOut;
         }
 
         private void OnTipSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             double sliderValue = TipSlider.Value;
-            string sliderValueOut = sliderValue.ToString() + '%';
+            string sliderValueOut = sliderValue.ToString() + "%";
             TipPercentOut.Text = sliderValueOut.ToString();
+
+            double valorRefeicao = Convert.ToDouble(ValueEntry.Text);
+            double valorGorjeta = valorRefeicao * (sliderValue / 100);
+            valorGorjeta = Double.Round(valorGorjeta);
+            double totalRefeicao = valorRefeicao + valorGorjeta;
+
+            TipOut.Text = "$" + valorGorjeta.ToString();
+            TotalOut.Text = "$" + totalRefeicao.ToString();
+
+
         }
     }
 
