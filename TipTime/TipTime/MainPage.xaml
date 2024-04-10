@@ -13,12 +13,6 @@
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
-            <Image
-                Source="bank.webp"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a race car number eight" />
-
             <Label
                 Text="Valor da refeição"
                 />
@@ -55,7 +49,7 @@
                 x:Name="TipSlider"
                 Value="15"
                 Minimum="0"
-                Maximum="100"
+                Maximum="50"
                 ValueChanged="OnTipSlider_ValueChanged"
                 />
 

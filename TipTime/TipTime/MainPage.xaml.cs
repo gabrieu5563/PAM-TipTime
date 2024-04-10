@@ -33,7 +33,6 @@
 
             TipOut.Text = "$" + valorGorjeta.ToString();
             TotalOut.Text = "$" + totalRefeicao.ToString();
-            TipPercentOut.Text = sliderValueOut.ToString() + "%";
             TipSlider.Value = sliderValueOut;
 
         }
@@ -49,7 +48,6 @@
 
             TipOut.Text = "$" + valorGorjeta.ToString();
             TotalOut.Text = "$" + totalRefeicao.ToString();
-            TipPercentOut.Text = sliderValueOut.ToString() + "%";
             TipSlider.Value = sliderValueOut;
         }
 
@@ -57,7 +55,8 @@
         {
             double sliderValue = TipSlider.Value;
             string sliderValueOut = sliderValue.ToString() + "%";
-            TipPercentOut.Text = sliderValueOut.ToString();
+            double porcentagemOut = Math.Round(sliderValue, 2);
+            TipPercentOut.Text = porcentagemOut.ToString() + "%";
 
             double valorRefeicao = Convert.ToDouble(ValueEntry.Text);
             double valorGorjeta = valorRefeicao * (sliderValue / 100);
